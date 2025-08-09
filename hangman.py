@@ -12,13 +12,16 @@ def maingame():
         for _ in display:
             print(_, end = "")
         guess = input(" Guess one letter: ")
-        attempts -= 1
-        print(f"The number of attempts left are: {attempts}")
         if guess.lower() in chosen_word:
+            print("Correct guess!")
             realguess = guess.lower()
             for i, letter in enumerate(chosen_word):
                 if letter == guess:
                     display[i] = realguess
+        else:
+            print("Wrong guess!")
+            attempts -= 1
+            print(f"Remaining attempts: {attempts}")
     print("You win!")
 
 print("Welcome To Hangman!")
